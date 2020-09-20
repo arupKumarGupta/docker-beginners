@@ -1,0 +1,13 @@
+Run nginx, mysql, httpd (apache server)
+Run all of them in detached state with name given
+ports :
+	nginx: 80:80
+	mysql 3306:3306 with random password (-e MYSQL_RANDOM_ROOT_PASSWORD=yes)
+	httpd 8080:80
+
+Solution: 
+commands in bash 
+docker container run 80:80 --publish -d --name nginx nginx
+d ocker container run 3306:3306 --publish -e MYSQL_RANDOM_ROOT_PASSWORD=yes -d --name mysql mysql
+docker container run 8080:80 --publish -d --name httpd httpd
+

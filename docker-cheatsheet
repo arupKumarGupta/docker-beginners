@@ -1,0 +1,29 @@
+docker version -- spits out version details
+docker info -- spits out info regarding configurations and containers and images
+docker command line structure:
+Old: docker <command> [options] 
+New: docker <command> <sub-command> [optons]
+
+Images vs Container
+An image is the application we want to run whereas container is an instance to run an image.
+
+Images: from Dockerfile compose or hub.docker.com
+Container: 
+Ex: nginx
+In shell: >docker container run --publish 80:80 --detach [--name <name>]  nginx
+Step 1: Download image nginx from hub.docker.com if not present locally.(image name specified as nginx)
+Step 2: Start a new container from that image (run command)
+Step 3: Opened port 80 on the host ip (publish part with ports specified)
+	port forwarding hostPort:portOfTheContainer
+	here nginx has default port 80
+Step 4: --detach return container id and frees the terminal
+
+Docker container commands: 
+1. docker container ls -- lists running containers
+2. docker container stop <container id -- prefix> -- stops the container whose ip prefix matches the container id
+3. docker container ls -a -- list all containers
+4. docker container logs <conainer name> -- list logs
+5. docker container rm <...container ids>
+6. docker top <name> -- list processes in container -- actually this process runs on host and the container has access to it.
+	check ps aux and you will see same process in case of linux
+7. docker container start <name>
