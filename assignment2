@@ -1,0 +1,19 @@
+# Run curl cli tool command in ubuntu:14.04 and centos:7
+
+Ubuntu
+Steps
+1. spin up the container (--rm for auto cleanup)
+	docker run --rm -it  --name ubuntu1404 ubuntu:14.04 bash4
+2. spin up centos container
+	docker run --rm -it  --name centos7 centos:7 bash
+3. exec into ubuntu and install curl
+	apt get update && apt install curl
+4. run curl tool via exec or inside bash
+	curl --version (exec as bash)
+	docker exec -it ubuntu1404 curl --version (won't work if --rm is used to install image)
+5. exec into centos and install curl
+	yum update curl
+6. exec into centos and run curl 
+	curl --version (exec as bash)
+	docker exec -it centos7 curl --version (won't work if --rm is used to install iamge)
+

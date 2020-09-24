@@ -1,0 +1,16 @@
+# DNS Round Robin Test
+# 2 diff hosts with alias which responds to same dns name
+# Create virtual network
+# run containers 1. elasticsearch:2 image with --network-alias search
+# Run alpine nslookup search with --net to see container list for same dns name
+# Run centos curl -s search:9200 with --net multiple times until you see both the name fields show.
+Solution:
+1. docker network create assg3
+2. docker continer run -d --net assg3 --net-alias search  elasticsearch:2 -- run n# times to spin multiple
+3. docker container run -d --name alpine --net assg3 alpine:3.10
+4. docker container run -d --name centos --net assg3 centos
+5. check docker network has all the containers > docker network inspect assg3
+6. if any container is not linked you can link it by > docker networks connect assg3 <container name/id>
+7. docker exec -it alpine nslookup search
+8. docker exec -it centos curl -s search:9200
+ 

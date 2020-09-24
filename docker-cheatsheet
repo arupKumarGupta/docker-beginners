@@ -18,7 +18,7 @@ Step 3: Opened port 80 on the host ip (publish part with ports specified)
 	here nginx has default port 80
 Step 4: --detach return container id and frees the terminal
 
-Docker container commands: 
+Docker commands commands: 
 1. docker container ls -- lists running containers
 2. docker container stop <container id -- prefix> -- stops the container whose ip prefix matches the container id
 3. docker container ls -a -- list all containers
@@ -27,3 +27,13 @@ Docker container commands:
 6. docker top <name> -- list processes in container -- actually this process runs on host and the container has access to it.
 	check ps aux and you will see same process in case of linux
 7. docker container start <name>
+8. docker container port <name> -- view ports exposed using -p
+9. docker container inspect <name>  -- reveals info about contianer and configs
+10. docker container stats <name> -- reveals performance states of the running container
+11. docker network ls -- show networks
+12.docker network create --driver
+13. docker network connect <network name> <container name>
+14. docker network disconnect
+15. docker netwok inspect -- shows info on networks and containers attached to them
+16. docker container run -it --rm <image> <shell>  --- enters into interactive tty and once aborted the container is deleted. --- --rm option
+17. 
