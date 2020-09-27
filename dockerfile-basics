@@ -1,0 +1,25 @@
+FROM alpine:3.11
+# all images must have FROM 
+# usually FROM a distro like alpine
+# from empty container use FROM scratch
+
+ENV NGINX_VERION 1.11.10-1~alpine
+# optional environment vars that will be used in later lines when the container is running
+
+RUN apt get update ... 
+# optinal commands to run at shell inside container at build time
+# eg. adding package repo, etc
+
+RUN ln -sf /dev/stdout /var/logs/nginx/access.log && ln -sf /dev/stderr /var/log/nginx/error.log
+# forwards nginx logs to stdout so that docker takes care of it for us
+
+EXPOSE 80 443
+# expose these ports to docker virutal net
+# you still need -p to publish 
+
+CMD ["nginx", "-g","daemon off;"]
+# required param
+# runs this cmd when the container is launched
+# only one CMD is allowed, so if multiple last one is executed.
+
+# Keep the cmds at the top that change the least. as after a line change in Dockerfile every line beneath that line is rebuild  

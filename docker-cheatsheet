@@ -36,4 +36,15 @@ Docker commands commands:
 14. docker network disconnect
 15. docker netwok inspect -- shows info on networks and containers attached to them
 16. docker container run -it --rm <image> <shell>  --- enters into interactive tty and once aborted the container is deleted. --- --rm option
-17. 
+
+Docker Images: 
+Image is a collection of app binaries and dependencies
+Not a complete OS. No kernel, kernel modules
+Commands:
+1. docker image ls -- list images 
+2. docker image history <image name>
+3. docker image inspect nginx
+4. docker pull <image from docker hub>
+5. docker image tag <image> [tag] <new image> [tag]
+6. docker image build [-t TAGS] <PATH>
+  
