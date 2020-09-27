@@ -47,4 +47,6 @@ Commands:
 4. docker pull <image from docker hub>
 5. docker image tag <image> [tag] <new image> [tag]
 6. docker image build [-t TAGS] <PATH>
-  
+7. docker image prune [-a #to remove all unsed images] --- removes dangling images/ cache and volumes to free up space
+8. docker system prune --- remove everything
+

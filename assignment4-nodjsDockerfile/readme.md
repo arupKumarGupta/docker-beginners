@@ -1,4 +1,4 @@
-#Instructions
+# Instructions
 ## To build docker image 
 ```
 docker image build -t <username>/<repo name>[tags] .
