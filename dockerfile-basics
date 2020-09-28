@@ -17,6 +17,9 @@ EXPOSE 80 443
 # expose these ports to docker virutal net
 # you still need -p to publish 
 
+VOLUME /var/lib/mysql
+#Volume -- for persistent data
+
 CMD ["nginx", "-g","daemon off;"]
 # required param
 # runs this cmd when the container is launched

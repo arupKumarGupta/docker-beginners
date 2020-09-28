@@ -50,3 +50,16 @@ Commands:
 7. docker image prune [-a #to remove all unsed images] --- removes dangling images/ cache and volumes to free up space
 8. docker system prune --- remove everything
 
+Docker Volumes -- for persisting data outside the container lifecycle
+1. docker volume ls  -- list volumes
+2. docker container run -d -v <name>:<path> <image> --- named docker volume
+3. docker volume create -- create a docker volume AOT #special case
+
+Bind Mounting
+Mapping of host files/directory to container file or directory
+Basically just 2 locations pointing to same file
+skips UFS and host files overwrite any in container
+Can't use in Dockerfile, must be in container run
+Bind mount ex below.
+4. docker container run -v <host-path>:<container-path>
+
