@@ -1,13 +1,8 @@
 # Instructions
-## To build docker image 
-```
-docker image build -t <username>/<repo name>[tags] .
-```
-## To push to docker hub
-```
-docker image push <username>/<reponame>
-```
-## To run the container with auto cleanup
-```
-docker run -p 80:80 --rm <username>/<repo name>
-```
+using existing image of nodejs created before
+
+## Steps
+  1. ```npm install```
+  2. docker run -p 80:80 -d --name <name-here> -v $(pwd):<WORK_DIR inside CONTAINER> <REPO_NAME>[:TAG]
+  3. update app.js in local and restart the container to view changes.
+
