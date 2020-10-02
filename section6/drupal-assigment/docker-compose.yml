@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+
+  drupal:
+    image: drupal:latest
+    ports: 
+      - 8081:80
+
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=drupal
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
